@@ -23,6 +23,7 @@ func main() {
 	// user handler
 	userHandler := handler.NewUserHandler(userService)
 
+	// router
 	router := gin.Default()
 	api := router.Group("/api/v1")
 	api.POST("/users", userHandler.RegisterUser)

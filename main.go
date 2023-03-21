@@ -16,7 +16,7 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
-	// repo
+	// user repo
 	userRepository := user.NewRepository(db)
 	// user service
 	userService := user.NewService(userRepository)

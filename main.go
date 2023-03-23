@@ -18,7 +18,7 @@ func main() {
 
 	// repo
 	userRepository := user.NewRepository(db)
-	// service
+	// user service
 	userService := user.NewService(userRepository)
 	// user handler
 	userHandler := handler.NewUserHandler(userService)

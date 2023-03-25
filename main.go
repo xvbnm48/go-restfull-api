@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/xvbnm48/go-restfull-api/user"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -15,18 +14,10 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
-	fmt.Println("connection to database is good")
-	var users []user.User
-	length := len(users)
-
-	fmt.Println(length)
-
-	db.Find(&users)
-	length = len(users)
-	fmt.Println(length)
-
-	for _, user := range users {
-		fmt.Println(user.Name)
-		fmt.Println(user.Email)
+	userRepository := user.NewRepository(db)
+	user := user.User{
+		Name: "nabirra",
 	}
+
+	userRepository.Save(user)
 }

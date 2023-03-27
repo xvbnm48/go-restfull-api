@@ -16,8 +16,11 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
+	// repo
 	userRepository := user.NewRepository(db)
+	// service
 	userService := user.NewService(userRepository)
+	// handler
 	userHandler := handler.NewUserHandler(userService)
 
 	router := gin.Default()

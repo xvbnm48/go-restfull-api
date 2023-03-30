@@ -1,4 +1,4 @@
-hei
+hei hello
 this is golang rest full with gin framework
 
 timestamp for me is 

@@ -8,22 +8,27 @@ func NewDatabaseConfig() DatabaseConfig {
 	return &databaseConfig{}
 }
 
+// get DB_USER from .env
 func (d *databaseConfig) GetUsername() string {
 	return os.Getenv("DB_USER")
 }
 
+// get DB_PASS from .env
 func (d *databaseConfig) GetPassword() string {
 	return os.Getenv("DB_PASS")
 }
 
+// get DB_HOST from .env
 func (d *databaseConfig) GetHost() string {
 	return os.Getenv("DB_HOST")
 }
 
+// get DB_PORT from .env
 func (d *databaseConfig) GetPort() string {
 	return os.Getenv("DB_PORT")
 }
 
+// get DB_NAME from .env
 func (d *databaseConfig) GetDatabaseName() string {
 	return os.Getenv("DB_NAME")
 }

@@ -13,6 +13,7 @@ type meta struct {
 	Status  string `json:"status"`
 }
 
+// APIResponse helper function to format API response
 func APIResponse(message string, code int, status string, data any) response {
 	meta := meta{
 		Message: message,

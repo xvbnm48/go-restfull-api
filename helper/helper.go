@@ -29,6 +29,7 @@ func APIResponse(message string, code int, status string, data any) response {
 	return JsonResponse
 }
 
+// FormatValidationError helper function to format validation error
 func FormatValidationError(err error) []string {
 	var errors []string
 	for _, e := range err.(validator.ValidationErrors) {

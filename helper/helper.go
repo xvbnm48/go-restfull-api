@@ -2,11 +2,13 @@ package helper
 
 import "github.com/go-playground/validator/v10"
 
+// any type for API response
 type response struct {
 	Meta meta `json:"meta"`
 	Data any  `json:"data"`
 }
 
+// meta struct for API response
 type meta struct {
 	Message string `json:"message"`
 	Code    int    `json:"code"`

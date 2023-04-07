@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/xvbnm48/go-restfull-api/handler"
 	"github.com/xvbnm48/go-restfull-api/user"
@@ -18,6 +19,11 @@ func main() {
 
 	// user repo
 	userRepository := user.NewRepository(db)
+	userByEmail, err := userRepository.FindByEmail("farizaaa@gmail.com")
+	if userByEmail.ID == 0 {
+		fmt.Println("user not found")
+	}
+	fmt.Println(userByEmail.Name)
 	// user service
 	userService := user.NewService(userRepository)
 	// user handler

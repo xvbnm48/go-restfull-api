@@ -2,6 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 	"github.com/xvbnm48/go-restfull-api/helper"
 	"github.com/xvbnm48/go-restfull-api/user"
 	"net/http"
@@ -20,8 +21,14 @@ func (h *userHandler) RegisterUser(c *gin.Context) {
 	err := c.ShouldBindJSON(&input)
 	if err != nil {
 		// error handling
-		response := helper.APIResponse("account failed to create", 400, "error", err.Error())
-		c.JSON(http.StatusBadRequest, response)
+		var errors []string
+		for _, e := range err.(validator.ValidationErrors) {
+			errors = append(errors, e.Error())
+		}
+
+		errorMessage := gin.H{"errors": errors}
+		response := helper.APIResponse("account failed to create", http.StatusUnprocessableEntity, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
 		return
 	}
 	NewUser, err := h.userService.RegisterUser(input)

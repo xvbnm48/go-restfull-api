@@ -2,6 +2,7 @@ package user
 
 import "time"
 
+// User is a struct that represents the user table in the database
 type User struct {
 	ID             int
 	Name           string

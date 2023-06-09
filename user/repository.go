@@ -51,5 +51,7 @@ func (r *repository) Update(user User) (User, error) {
 		return user, err
 	}
 
+	// this is for update user, when user from service send a user data, then update user in database
+
 	return user, nil
 }

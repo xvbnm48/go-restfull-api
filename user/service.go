@@ -51,6 +51,7 @@ func (s *service) LoginUser(input LoginInput) (User, error) {
 	email := input.Email
 	password := input.Password
 
+	// find user by email
 	user, err := s.repo.FindByEmail(email)
 	if err != nil {
 		return user, err

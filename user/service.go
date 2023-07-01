@@ -47,6 +47,7 @@ func (s *service) RegisterUser(input RegisterUserInput) (User, error) {
 }
 
 func (s *service) LoginUser(input LoginInput) (User, error) {
+	// this is for login user
 	email := input.Email
 	password := input.Password
 

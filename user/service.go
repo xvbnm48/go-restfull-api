@@ -31,6 +31,9 @@ func (s *service) RegisterUser(input RegisterUserInput) (User, error) {
 	if err != nil {
 		return user, err
 	}
+
+	// user password from input
+	// set to struct user password hash
 	user.PasswordHash = string(passwordHash)
 	user.Role = "user"
 
